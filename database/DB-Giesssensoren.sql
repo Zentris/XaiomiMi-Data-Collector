@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2+deb7u7
+-- version 3.4.11.1deb2+deb7u8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 12. Mrz 2017 um 22:48
--- Server Version: 5.5.53
--- PHP-Version: 5.4.45-0+deb7u6
+-- Erstellungszeit: 08. Aug 2017 um 19:50
+-- Server Version: 5.5.54
+-- PHP-Version: 5.4.45-0+deb7u7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `Logging`
 --
 
+DROP TABLE IF EXISTS `Logging`;
 CREATE TABLE IF NOT EXISTS `Logging` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `mac` varchar(18) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'MAC Address',
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `Logging` (
   KEY `level` (`level`),
   KEY `date` (`date`),
   KEY `time` (`time`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -40,20 +41,26 @@ CREATE TABLE IF NOT EXISTS `Logging` (
 -- Tabellenstruktur für Tabelle `Sensordaten`
 --
 
+DROP TABLE IF EXISTS `Sensordaten`;
 CREATE TABLE IF NOT EXISTS `Sensordaten` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `mac` varchar(18) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `sensormac` varchar(18) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `collectorip` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `collectormac` varchar(18) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `moisture` float DEFAULT NULL,
   `temperature` float DEFAULT NULL,
   `light` float DEFAULT NULL,
   `conductivity` float DEFAULT NULL,
-  `batterie` float DEFAULT NULL,
-  PRIMARY KEY (`mac`),
-  UNIQUE KEY `id` (`id`),
+  `battery` float DEFAULT NULL,
+  `cputmp` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `date` (`date`),
-  KEY `time` (`time`)
+  KEY `time` (`time`),
+  KEY `collectorip` (`collectorip`),
+  KEY `sensormac_2` (`sensormac`),
+  KEY `sensormac` (`sensormac`,`collectorip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -62,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `Sensordaten` (
 -- Tabellenstruktur für Tabelle `Sensoren`
 --
 
+DROP TABLE IF EXISTS `Sensoren`;
 CREATE TABLE IF NOT EXISTS `Sensoren` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mac` varchar(18) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -74,14 +82,4 @@ CREATE TABLE IF NOT EXISTS `Sensoren` (
   `comment` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`mac`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Constraints der exportierten Tabellen
---
-
---
--- Constraints der Tabelle `Sensordaten`
---
-ALTER TABLE `Sensordaten`
-  ADD CONSTRAINT `Sensordaten_ibfk_2` FOREIGN KEY (`mac`) REFERENCES `Sensoren` (`mac`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
