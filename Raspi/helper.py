@@ -6,13 +6,9 @@ import subprocess
 import socket
 import uuid
 import os
-import stat
-import errno
-import threading
 
 from influxdb import InfluxDBClient
 import json
-import math
 
 import pymysql
 
@@ -346,7 +342,8 @@ class InfluxConnector:
         inflxDataSet["time"] = "{0}T{1}{2}".format(dataSet["date"], dataSet["time"], aTimeShift)
 
         # clear useless tags
-        if dataSet.has_key("debug"):
+ #       if dataSet.has_key("debug"):   #   bad, removed in Python 3
+        if "debug" in dataSet:
             dataSet.pop("debug")
         dataSet.pop("date")
         dataSet.pop("time")

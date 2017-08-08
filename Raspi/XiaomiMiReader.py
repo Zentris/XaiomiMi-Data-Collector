@@ -221,7 +221,7 @@ if __name__ == '__main__':
                                    )
         inflx.writeData(sensorDaten, aTimeShift="+01:00", aTraceOn=True, aTestOnly=False)
 
-        # Write data into MySQL database (cubi)
+        # Write data into MySQL database ()
         try:
             db = SQLConnector.MySQLConnector(log,
                                          cfg.getData(cfgMySql.Section, cfgMySql.DbHost),
@@ -233,7 +233,7 @@ if __name__ == '__main__':
             db.writeData(sensorDaten, nameMapping=SQLTableMapping)
             db.closeDbConnection()
         except Exception as ex:
-            log.error("Cubi MySQL database not rechable or other error: '{}'".format(ex))
+            log.error("MySQL database not rechable or other error: '{}'".format(ex))
 
         log.info("Measurement ends for sensor mac={}".format(mac))
 
