@@ -28,7 +28,8 @@ Readme
 
 * Getestet wurde aktuell nur unter Ubuntu 16.04 LTE und Rasbian Jessy auf RasPi Zero W
 
-###Files
+####Files
+
 ##### Direktory /Raspi
 * **XiaomiMiReader.py**     : Hauptklasse 
 * **XiaomiMiConnector.py**  : Hilfscode zum Auslesen der Sensoren
