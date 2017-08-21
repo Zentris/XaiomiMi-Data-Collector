@@ -1,0 +1,14 @@
+/var/log/messages
+/home/pi/homeautomat/xiaomi/startsens.log
+{
+	rotate 8
+	weekly
+	missingok
+	notifempty
+	compress
+	delaycompress
+	sharedscripts
+	postrotate
+		invoke-rc.d rsyslog rotate > /dev/null
+	endscript
+}
