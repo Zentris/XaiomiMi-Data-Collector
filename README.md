@@ -1,5 +1,5 @@
-Readme 
-#### Bitte zuerst lesen!
+
+##### Bitte zuerst lesen!
 
 #### Ziel
 * Auslesen von Xiaomi Plant Sensoren.
@@ -28,7 +28,7 @@ Readme
 
 * Getestet wurde aktuell nur unter Ubuntu 16.04 LTE und Rasbian Jessy auf RasPi Zero W
 
-####Files
+#### Files
 
 ##### Direktory /Raspi
 * **XiaomiMiReader.py**     : Hauptklasse 
@@ -45,7 +45,7 @@ Readme
 * **crontab**               : crontab Eintrag
 * **homeautomation**        : File für logrotate für Housekeeping der Logfiles 
 
-####Visualisierung der Daten
+#### Visualisierung der Daten
 * Wenn die Daten in eine Influx-DB gesendet werden, ist **Grafana** ein sehr flexibles Werkzeug zur Visualisierung der Daten.
 * Aktuell (21.08.17) kann die bei mir laufende Anwendung hier angesehen werden: http://www.n8chteule.de/zentris-blog/sensoren-im-netz-live-view/
 
