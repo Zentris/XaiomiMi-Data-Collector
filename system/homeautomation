@@ -1,4 +1,3 @@
-/var/log/messages
 /home/pi/homeautomat/xiaomi/startsens.log
 {
 	rotate 8
