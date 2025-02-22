@@ -9,7 +9,7 @@
 
 #### Hauptfunktionen
  * Auslesen von bis zu 20 Xiaomi Plant Sensoren (Wert durch Änderung im Code einstellbar)
- * Ausgelesen werden Erdfeucht, Temperatur, Leitwert, Helligkeit, Batteriespannung, Version
+ * Ausgelesen werden Erdfeuchte, Temperatur, Leitwert, Helligkeit, Batteriespannung, Version
  * Ausgabe/Bereitstellung der Daten in Form eines Dictionary
  * Schreiben der Daten in Datenbanken: MySQL und Influx (für schnelle Darstellung mit Grafana)
  
@@ -47,7 +47,7 @@
 
 #### Visualisierung der Daten
 * Wenn die Daten in eine Influx-DB gesendet werden, ist **Grafana** ein sehr flexibles Werkzeug zur Visualisierung der Daten.
-* Aktuell (21.08.17) kann die bei mir laufende Anwendung hier angesehen werden: http://www.n8chteule.de/zentris-blog/sensoren-im-netz-live-view/
+* ~~Aktuell (21.08.17) kann die bei mir laufende Anwendung hier angesehen werden: http://www.n8chteule.de/zentris-blog/sensoren-im-netz-live-view/~~
 
 
 
